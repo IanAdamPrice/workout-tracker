@@ -34,6 +34,9 @@ Stats.init(
     goals: {
       type: DataTypes.STRING,
       allowNull: false,
+      validate: {
+        len: [1]
+      }
     }
   },
   {
