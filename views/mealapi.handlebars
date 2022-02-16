@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+    <title>Meal Finder</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./public/stylesheet/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="meal-wrapper"></div>
+      <div class="meal-search">
+        <h2 class="title">Meal Finder</h2>
+        <blockquote>
+          Type in any ingredient to find a meal that contains it!
+        </blockquote>
+        <div class="meal-search-box">
+        <input id="search" class="search-control" placeholder="Enter an ingredient here"/><button
+        class="search-btn btn" id="search-btn"
+          onclick="getrecipe(document.getElementById('search').value)"
+        >
+        <i class="fas fa-search"></i>
+        </button>
+        </div>
+        <div id="output"></div>
+        <a href="" id="sourceLink"></a>
+        <div class = "Pyramid-image">
+            <h2>Food Pyramid: For a balanced diet</h2>
+        </div>
+        <div class="meal-img">
+            <img src="foodpyramid.jpg" alt="foodpyramid">
+        </div>
+        <!-- <div class="meal-search-box">
+          <input
+            type="text"
+            class="search-control"
+            placeholder="Enter an ingredient here"
+            id="search-input"
+          />
+          <button type="submit" class="search-btn btn" id="search-btn">
+            <i class="fas fa-search"></i>
+          </button>
+        </div> -->
+      </div>
+      <!-- <div class = "meal-result">
+        <h2 class = "title">Meal Results:</h2>
+        <div id= "meal">
+            <div class = "meal-item">
+                <div class = "meal-name">
+                    <h3>Caeser Salad</h3>
+                    <a href = "#" class = "recipe-btn">Find Recipe</a>
+                </div>
+            </div>
+        </div> -->
+    </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
