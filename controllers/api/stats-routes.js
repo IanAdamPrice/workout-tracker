@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Stats } = require('../../models');
+const { Stats, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', (req, res) => {
@@ -11,7 +11,41 @@ router.get('/', (req, res) => {
     });
 });
 
-router.post('/', withAuth, (req,res) => {
+router.get('/:id', (req,res) => {
+  Stats.findOne({
+    where: {
+      id: req.params.id
+    },
+    attributes: [
+      'user_id',
+      'height',
+      'age',
+      'weight',
+      'workout_count',
+      'meal_count',
+      'goals'
+    ],
+    include: [
+      {
+        model: User,
+        attributes: ['username']
+      }
+    ]
+  })
+    .then(dbStatsData => {
+      if (!dbStatsData) {
+        res.status(404).json({ message: 'No stats found with this id' });
+        return;
+      }
+      res.json(dbStatsData);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+router.post('/', (req,res) => {
   Stats.create({
     user_id: req.session.user_id,
     height: req.body.height,
@@ -28,4 +62,33 @@ router.post('/', withAuth, (req,res) => {
   });
 });
 
-module.export = router;
+router.put('/:id', (req,res) => {
+  Stats.update(
+    {
+      height: req.body.height,
+      age: req.body.age,
+      weight: req.body.weight,
+      workout_count: req.body.workout_count,
+      meal_count: req.body.meal_count,
+      goals: req.body.goals
+    },
+    {
+      where: {
+        id: req.params.id
+      }
+    }
+  )
+    .then(dbStatsData => {
+      if (!dbStatsData) {
+        res.status(404).json({ message: "No stats found with this id" });
+        return;
+      }
+      res.json(dbStatsData);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+module.exports = router;
