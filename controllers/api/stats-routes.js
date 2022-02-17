@@ -61,7 +61,7 @@ router.get('/:id', (req,res) => {
     });
 });
 
-router.post('/', (req,res) => {
+router.post('/', withAuth, (req,res) => {
   Stats.create({
     user_id: req.session.user_id,
     height: req.body.height,

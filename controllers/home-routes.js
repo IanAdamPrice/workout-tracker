@@ -22,10 +22,10 @@ router.get('/', (req, res) => {
       ]
   })
     .then(dbPostData => {
-        const stats = dbPostData.map(stats => stats.get({ plain: true }));
+        const users = dbPostData.map(users => users.get({ plain: true }));
 
         res.render('homepage', {
-          stats,
+          users,
           loggedIn: req.session.loggedIn
         });
     })

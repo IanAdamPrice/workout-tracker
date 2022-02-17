@@ -18,6 +18,8 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
     <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 
@@ -29,15 +31,42 @@
       </h1>
       <nav>
         {{#if loggedIn}}
-        <a href="/dashboard">dashboard</a>
+        <div>
+          {{#each this}}
+          <div>
+            {{user.username}}
+          </div>
+          {{/each}}
+        </div>
         <button id="logout" class="btn-no-style">logout</button>
         {{else}}
         <a href="/login">login</a>
         {{/if}}
       </nav>
     </header>
-    <main>
+    <main class="col">
       {{{ body }}}
+        <div class="card">
+    <a href="/workout"<img src="/assets/workout.png" alt="Avatar" style="width:10%">
+    <div class="container">
+      <h4><b>Workout</b></h4>
+      <p>Look at workouts!</p>
+    </div>
+  </div>
+<div class="card">
+  <a href="/mealapi"><img src="/assets/meals.png" alt="Avatar" style="width:10%"></a>
+  <div class="container">
+    <h4><b>Meals</b></h4>
+    <p>Plan meals, Find Recipes</p>
+  </div>
+</div>
+<div class="card">
+  <a href="/stats"><img src="assets/stats.png" alt="Avatar" style="width:10%"></a>
+  <div class="container">
+    <h4><b>Stats</b></h4>
+    <p>View Your Stats</p>
+  </div>
+</div>
     </main>
     <footer>
       Thanks for visiting!
