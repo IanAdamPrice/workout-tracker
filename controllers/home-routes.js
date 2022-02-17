@@ -4,7 +4,7 @@ const { User, Stats } = require('../models');
 
 router.get('/', (req, res) => {
   console.log('======================');
-  Stats.findOne({
+  Stats.findAll({
       attributes: [
         'user_id',
         'height',
@@ -21,11 +21,11 @@ router.get('/', (req, res) => {
         }
       ]
   })
-    .then(dbStatData => {
-        const stats = dbStatData.map(stats => stats.get({ plain: true }));
+    .then(dbPostData => {
+        const users = dbPostData.map(users => users.get({ plain: true }));
 
         res.render('homepage', {
-          stats,
+          users,
           loggedIn: req.session.loggedIn
         });
     })
