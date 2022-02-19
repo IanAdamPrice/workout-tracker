@@ -39,6 +39,10 @@ router.get('/mealapi', (req, res) => {
   res.render('mealapi');
 })
 
+router.get('/', (req, res) => {
+    res.render('user-login')
+});
+
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/');

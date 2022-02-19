@@ -6,7 +6,8 @@ const workoutdata = [
     intensity: 'Light',
     duration: '60',
     distance: '2',
-    user_id: 4
+    weight: 'squat',
+    reps: '5'
   }
 ];
 

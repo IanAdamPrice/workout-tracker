@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Stats } = require('../../models');
+const { User, Stats, Workouts } = require('../../models');
 
 router.get('/', (req, res) => {
   User.findAll({
@@ -22,6 +22,10 @@ router.get('/:id', (req, res) => {
       {
         model: Stats,
         attributes: ['id', 'height', 'age', 'weight', 'workout_count', 'meal_count', 'goals']
+      },
+      {
+          model: Workouts,
+          attributes:['exercise', 'intensity', 'duration', 'distance', 'weight', 'reps']
       }
     ]
   })
