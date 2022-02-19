@@ -3,23 +3,7 @@ const { Stats, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', (req, res) => {
-  Stats.findAll({
-    attributes: [
-      'user_id',
-      'height',
-      'age',
-      'weight',
-      'workout_count',
-      'meal_count',
-      'goals'
-    ],
-    include: [
-      {
-        model: User,
-        attributes: ['username']
-      }
-    ]
-  })
+  Stats.findAll()
     .then(dbStatsData => res.json(dbStatsData))
     .catch(err => {
       console.log(err);
