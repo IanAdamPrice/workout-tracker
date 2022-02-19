@@ -2,25 +2,10 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script
-      src="https://code.jquery.com/jquery-3.6.0.js"
-      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-      crossorigin="anonymous"
-    ></script>
-    <title>Meal Finder</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <link rel="stylesheet" href="/stylesheets/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Just Tech News</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
 <body>
@@ -31,42 +16,15 @@
       </h1>
       <nav>
         {{#if loggedIn}}
-        <div>
-          {{#each this}}
-          <div>
-            {{user.username}}
-          </div>
-          {{/each}}
-        </div>
+        <a href="/dashboard">dashboard</a>
         <button id="logout" class="btn-no-style">logout</button>
         {{else}}
         <a href="/login">login</a>
         {{/if}}
       </nav>
     </header>
-    <main class="col">
+    <main>
       {{{ body }}}
-        <div class="card">
-    <a href="/workout"<img src="/assets/workout.png" alt="Avatar" style="width:10%">
-    <div class="container">
-      <h4><b>Workout</b></h4>
-      <p>Look at workouts!</p>
-    </div>
-  </div>
-<div class="card">
-  <a href="/mealapi"><img src="/assets/meals.png" alt="Avatar" style="width:10%"></a>
-  <div class="container">
-    <h4><b>Meals</b></h4>
-    <p>Plan meals, Find Recipes</p>
-  </div>
-</div>
-<div class="card">
-  <a href="/stats"><img src="assets/stats.png" alt="Avatar" style="width:10%"></a>
-  <div class="container">
-    <h4><b>Stats</b></h4>
-    <p>View Your Stats</p>
-  </div>
-</div>
     </main>
     <footer>
       Thanks for visiting!
