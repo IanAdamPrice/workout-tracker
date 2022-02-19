@@ -1,0 +1,25 @@
+<form class="new-post-form">
+    <div class="form-group mt-5">
+      <input type="text" id="stat-height" name="stat-height" placeholder="Height"/>
+    </div>
+    <div class="form-group">
+      <input type="text" id="stat-age" name="stat-age" placeholder="Age"/>
+    </div>
+    <div class="form-group">
+      <input type="text" id="stat-weight" name="stat-weight" placeholder="Weight"/>
+    </div>
+    <div class="form-group">
+      <input type="text" id="stat-workout" name="stat-workout" placeholder="Time Working Out"/>
+    </div>
+    <div class="form-group">
+      <input type="text" id="stat-meals" name="stat-meals" placeholder="Number of Meals"/>
+    </div>
+    <div class="form-group">
+      <input type="text" id="stat-goals" name="stat-goals" placeholder="What Are Your Goals?"/>
+    </div>
+    <button type="submit" class="btn border border-2 border-dark bg-white">Create</button>
+  </form>
+
+  {{#if loggedIn}}
+<script src="/javascript/add-stats.js"></script>
+{{/if}}

@@ -7,7 +7,21 @@ const PORT = process.env.PORT || 3001;
 
 const sequelize = require('./config/connection');
 
-const hbs = exphbs.create({});
+const sess = {
+  secret: process.env.SESSION_SECRET,
+  cookie: {},
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize
+  })
+};
+
+app.use(session(sess));
+
+const helpers = require('./utils/helpers');
+
+const hbs = exphbs.create({ helpers });
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
