@@ -20,6 +20,11 @@
     <button type="submit" class="btn border border-2 border-dark bg-white">Create</button>
   </form>
 
+    <div>
+          {{> stats-info stats}}
+
+    </div>
+
   {{#if loggedIn}}
 <script src="/javascript/add-stats.js"></script>
 {{/if}}

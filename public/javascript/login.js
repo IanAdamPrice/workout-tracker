@@ -15,7 +15,7 @@ async function loginFormHandler(event) {
       });
   
       if (response.ok) {
-        document.location.replace('/stats/');
+        document.location.replace('/api/stats/');
       } else {
         alert(response.statusText);
       }

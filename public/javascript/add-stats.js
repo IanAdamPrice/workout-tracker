@@ -4,7 +4,7 @@ async function newFormHandler(event) {
     const height = document.querySelector('input[name="stat-height"]').value.trim();
     //const post_url = document.querySelector('input[name="post-url"]').value;
   
-    const response = await fetch(`/api/stats/`, {
+    const response = await fetch(`/api/stats/:id`, {
       method: 'PUT',
       body: JSON.stringify({
         height,
@@ -17,7 +17,7 @@ async function newFormHandler(event) {
     if (response.ok) {
       document.location.replace('/');
     } else {
-      alert(response.statusText);
+      console.error(response.statusText);
     }
   }
   
